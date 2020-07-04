@@ -1,0 +1,44 @@
+[options]
+allow_bold = true
+font = Monospace 9
+scrollback_lines = 10000
+
+[colors]
+foreground = #cbcbcb
+background = rgba(0, 0, 0, 0.8)
+
+# If unset, will reverse foreground and background
+highlight = #2f2f2f
+
+# Terminal Colors
+# black
+color0  = #484848
+color8  = #737373
+
+# red
+color1  = #650000
+color9  = #cc6666
+
+# green
+color2  = #31722b
+color10 = #6fbd68
+
+# yellow
+color3  = #de851e
+color11 = #f0c674
+
+# blue
+color4  = #152f9d
+color12 = #81a2be
+
+# magenta
+color5  = #6c208f
+color13 = #b294bb
+
+# cyan
+color6  = #1c8d8b
+color14 = #8abeb7
+
+# white
+color7  = #8a8a8a
+color15 = #d7d7d7
