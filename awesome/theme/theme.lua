@@ -129,4 +129,6 @@ theme.hamburger_icon = theme_path.."hamburger.png"
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
+theme.tasklist_disable_icon = true
+
 return theme
