@@ -90,7 +90,6 @@ myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "reload", awesome.restart },
-   { "logout", function() awesome.quit() end },
 }
 
 myutilsmenu = {
@@ -98,9 +97,23 @@ myutilsmenu = {
     { "editor", geditor },
 }
 
+mydevtoolsmenu = {
+    { "pycharm", "pycharm" },
+    { "netbeans", "netbeans" },
+    { "vscode", "code" },
+}
+
+myleavemenu = {
+    { "logout", function() awesome.quit() end },
+    { "restart", "reboot" },
+    { "shutdown", "poweroff" },
+}
+
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu },
                                     { "utilities", myutilsmenu },
-                                    { "open terminal", terminal }
+                                    { "dev tools", mydevtoolsmenu},
+                                    { "leave", myleavemenu},
+                                    { "open terminal", terminal },
                                   }
                         })
 
