@@ -24,7 +24,7 @@ colors = {
     "foreground2":"#404040",
     "themecolor1":"#1c264d",
     "themecolor2":"#3d497b",
-    "transparency":0.8
+    "transparency":0.9
 }
 font = {
     "font":"sans",

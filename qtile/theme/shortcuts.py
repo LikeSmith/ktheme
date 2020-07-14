@@ -68,6 +68,17 @@ def gen_keys():
             lazy.window.toggle_fullscreen(),
             desc="Fusscreen focused window"),
 
+        # Utilities
+        Key([mod_key], "u",
+            lazy.spawn(default_apps["terminal"] + " -e ~/.config/qtile/scripts/update_all.bash"),
+            desc="Run all updates"),
+        Key([mod_key, "shift"], "u",
+            lazy.spawn(default_apps["terminal"] + " -e ~/.config/qtile/scripts/update_pacman.bash"),
+            desc="Run Pacman updates"),
+        Key([mod_key, "control"], "u",
+            lazy.spawn(default_apps["terminal"] + " -e ~/.config/qtile/scripts/update_yay.basj"),
+            desc="Run yay updates"),
+
         # App Shortcuts
         Key([mod_key], "Return",
             lazy.spawn(default_apps["terminal"]),
