@@ -27,21 +27,29 @@ def gen_bar():
     bar_widgets = [
         widget.Sep(
             linewidth=0,
-            padding=10,
+            padding=10
         ),
         widget.Image(
             filename="~/.config/qtile/theme/icons/terminal.png",
-            margin=6,
+            margin=3,
             mouse_callbacks = {"Button1":lambda qtile: qtile.cmd_spawn(default_apps["terminal"])}
+        ),
+        widget.Sep(
+            linewidth=0,
+            padding=5
         ),
         widget.Image(
             filename="~/.config/qtile/theme/icons/browser.png",
-            margin=6,
+            margin=3,
             mouse_callbacks = {"Button1":lambda qtile: qtile.cmd_spawn(default_apps["browser"])}
+        ),
+        widget.Sep(
+            linewidth=0,
+            padding=5
         ),
         widget.Image(
             filename="~/.config/qtile/theme/icons/editor.png",
-            margin=6,
+            margin=3,
             mouse_callbacks = {"Button1":lambda qtile: qtile.cmd_spawn(default_apps["editor"])}
         ),
         widget.Sep(
@@ -58,6 +66,30 @@ def gen_bar():
             padding=10
         ),
         widget.WindowName(),
+        widget.Image(
+            filename="~/.config/qtile/theme/icons/thermometer.png",
+            background=colors["themecolor1"],
+            margin=6
+        ),
+        widget.ThermalSensor(
+            background=colors["themecolor1"]
+        ),
+        widget.Image(
+            filename="~/.config/qtile/theme/icons/cpu.png",
+            background=colors["themecolor2"],
+            margin=6
+        ),
+        widget.CPU(
+            background=colors["themecolor2"]
+        ),
+        widget.Image(
+            filename="~/.config/qtile/theme/icons/memory.png",
+            background=colors["themecolor1"],
+            margin=6
+        ),
+        widget.Memory(
+            background=colors["themecolor1"],
+        ),
         widget.Image(
             filename="~/.config/qtile/theme/icons/update.png",
             background=colors["themecolor2"],
@@ -86,7 +118,7 @@ def gen_bar():
             background=colors["themecolor2"]
         ),
         widget.Clock(
-            format='[%Y-%m-%d %a %I:%M %p]',
+            format='%Y-%m-%d %a %I:%M %p',
             background=colors["themecolor1"]
         ),
         widget.Sep(
@@ -102,6 +134,7 @@ def gen_bar():
         opacity=colors["transparency"]
     )
 
+# Sets up screens
 def gen_screens():
     screens = [
         Screen(

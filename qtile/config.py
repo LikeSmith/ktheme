@@ -7,9 +7,9 @@ Date: July 2020
 Qtile config file, loads ktheme
 """
 
-from libqtile.config import Key, Screen, Group, Drag, Click
+from libqtile.config import Drag, Click
 from libqtile.lazy import lazy
-from libqtile import layout, bar, widget, hook
+from libqtile import layout, hook
 
 from typing import List
 import os
@@ -19,8 +19,7 @@ from theme.shortcuts import gen_keys
 from theme.groups import gen_groups
 from theme.layouts import gen_layouts
 from theme.screens import gen_screens
-
-mod = "mod4"
+from theme.defaults import mod_key
 
 # Setup keyboard shortcuts
 keys = gen_keys()
@@ -37,11 +36,11 @@ extension_defaults = widget_defaults.copy()
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
+    Drag([mod_key], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
+    Drag([mod_key], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Click([mod_key], "Button2", lazy.window.bring_to_front())
 ]
 
 dgroups_key_binder = None
