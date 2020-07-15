@@ -13,6 +13,8 @@ from libqtile import widget, bar
 
 from .defaults import colors, font, default_apps
 
+import os
+
 # Setup Bar
 def gen_widget_defaults():
     widget_defaults = {
@@ -94,12 +96,13 @@ def gen_bar():
             filename="~/.config/qtile/theme/icons/update.png",
             background=colors["themecolor2"],
             margin=6,
-            #mouse_callbacks = {"Button1": lambda qtile: qtile.cmd_spawn(default_apps['terminal'] + " -e ~/.config/qtile/update_all.bash")}
+            mouse_callbacks = {"Button1": lambda qtile: qtile.cmd_spawn(default_apps['terminal'] + " -e %s/.config/qtile/scripts/update_all.bash"%(os.path.expanduser("~"),))}
         ),
         widget.Pacman(
             background=colors["themecolor2"],
             foreground=colors["foreground1"],
-            unavailable=colors["foreground2"]
+            unavailable=colors["foreground2"],
+            mouse_callbacks = {"Button1": lambda qtile: qtile.cmd_spawn(default_apps['terminal'] + " -e %s/.config/qtile/scripts/update_all.bash"%(os.path.expanduser("~"),))}
         ), 
         widget.Image(
             filename="~/.config/qtile/theme/icons/speaker.png",

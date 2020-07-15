@@ -12,6 +12,8 @@ from libqtile.lazy import lazy
 
 from .defaults import default_apps, mod_key
 
+import os
+
 def gen_keys():
     keys = [
         # Manage Windows:
@@ -70,13 +72,13 @@ def gen_keys():
 
         # Utilities
         Key([mod_key], "u",
-            lazy.spawn(default_apps["terminal"] + " -e ~/.config/qtile/scripts/update_all.bash"),
+            lazy.spawn(default_apps["terminal"] + " -e %s/.config/qtile/scripts/update_all.bash"%(os.path.expanduser("~"),)),
             desc="Run all updates"),
         Key([mod_key, "shift"], "u",
-            lazy.spawn(default_apps["terminal"] + " -e ~/.config/qtile/scripts/update_pacman.bash"),
+            lazy.spawn(default_apps["terminal"] + " -e %s/.config/qtile/scripts/update_pacman.bash"%(os.path.expanduser("~"),)),
             desc="Run Pacman updates"),
         Key([mod_key, "control"], "u",
-            lazy.spawn(default_apps["terminal"] + " -e ~/.config/qtile/scripts/update_yay.basj"),
+            lazy.spawn(default_apps["terminal"] + " -e %s/.config/qtile/scripts/update_yay.basj"%(os.path.expanduser("~"),)),
             desc="Run yay updates"),
 
         # App Shortcuts

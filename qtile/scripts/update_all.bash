@@ -2,5 +2,5 @@
 
 sudo pacman -Syu
 yay -Syu
-~/.config/qtile/pause.bash
+~/.config/qtile/scripts/pause.bash
 
