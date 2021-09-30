@@ -1,0 +1,48 @@
+general {
+	output_format = "i3bar"
+	colors = true
+	interval = 5
+}
+
+order += "battery 1"
+order += "volume master"
+order += "cpu_temperature 0"
+order += "tztime local"
+
+battery 1 {
+	format = "%status %percentage (%remaining)"
+	last_full_capacity = true
+	integer_battery_capacity = true
+	low_threshold = 15
+	threshold_type = percentage
+	hide_seconds = true
+	status_chr = "CHG"
+	status_bat = "BAT"
+	status_unk = "?"
+	status_full = "FUL"
+	separator_block_width = 20
+	separator = true
+}
+
+volume master {
+	format = "VOL: %volume"
+	format_muted = "MUTE"
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+	separator_block_width = 20
+	separator = true
+}
+
+cpu_temperature 0 {
+	format = "CPU %degreesC"
+	separator_block_width = 20
+	separator = true
+}
+
+tztime local {
+	format = "%m-%d-%Y %H:%M"
+	separator_block_width = 20
+	separator = true
+}
+

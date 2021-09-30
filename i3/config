@@ -1,0 +1,114 @@
+#
+# config.ktheme
+# SEPTEMBER 2021
+# Author: Kyle Crandall
+#
+# I3 config file for ktheme
+#
+
+# Mod Key
+set $mod Mod4
+
+# Main font for window titles
+font pango:DejaVu Sans Mono 12
+
+# Initial Setup stuff
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+exec --no-startup-id nitrogen --restore
+#exec --no-startup-id xcompmgr -c
+exec --no-startup-id picom
+
+# Setup Gaps
+gaps inner 10
+gaps outer 5
+
+# Default apps
+set $terminal termite
+set $browser firefox
+set $texteditor code
+
+# Key Bindings
+# System
+bindsym $mod+Shift+r reload
+bindsym $mod+Control+r restart
+bindsym $mod+Shift+q exec --no-startup-id i3-msg exit
+bindsym $mod+Control+q exec --no-startup-id poweroff
+bindsym $mod+l exec --no-startup-id i3lock && sleep 1
+bindsym $mod+Shift+l exec --no-startup-id i3lock && sleep 1 && ststenctl suspend
+
+# Default apps
+bindsym $mod+Return exec $terminal
+bindsym $mod+b exec $browser
+bindsym $mod+t exec $texteditor
+bindsym $mod+r exec --no-startup-id dmenu_run
+
+# Window Focus
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+bindsym $mod+Left focus Left
+bindsym $mod+Right focus Right
+bindsym $mod+p focus parent
+
+# Move Windows
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+
+# Resize Windows
+bindsym $mod+Control+Up resize grow height 10 px or 10 ppt
+bindsym $mod+Control+Down resize shrink height 10 px or 10 ppt
+bindsym $mod+Control+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Control+Right resize grow width 10 px or 10 ppt
+
+# Window Functions
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+q kill
+bindsym $mod+Shiftf floating toggle
+bindsym $mod+f fullscreen toggle
+
+# Workspaces
+set $def "DEF"
+set $wrk "WRK"
+set $run "RUN"
+
+# switch workspaces
+bindsym $mod+1 workspace $def
+bindsym $mod+2 workspace $wrk
+bindsym $mod+3 workspace $run
+
+# move focused window to workspace
+bindsym $mod+Shift+1 move container to workspace $def
+bindsym $mod+Shift+2 move container to workspace $wrk
+bindsym $mod+Shift+3 move container to workspace $run
+
+# Volume Control
+#set $refresh_i3status killall -SIGUSR1 i3status
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- && $refresh_i3status
+#bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle
+
+# i3Bar
+Bar {
+	output primary
+	mode dock
+	font pango:Monospace 12
+	position top
+	workspace_buttons yes
+#	height 50
+	status_command i3blocks
+	tray_output none
+}
+
+# Windows
+# Color of:				Border	bkgrnd	text	ind		child_border
+client.focused			#888888	#000000	#c8c8c8	#888888	#646464
+client.focused_inactive	#555555	#000000	#c8c8c8	#555555	#333333
+client.unfocused		#555555	#000000	#a8a8a8	#555555	#333333
+client.urgent			#888888	#550000	#c8c8c8	#888888	#330000
+client.placeholder		#555555	#000000	#a8a8a8	#555555	#333333
