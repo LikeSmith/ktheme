@@ -23,6 +23,10 @@ if [[ $1 == "-u" ]]; then
         echo "Removing termite config"
         rm ~/.config/termite
     fi
+    if [ -L ~/.config/nvim ]; then
+        echo "Removing nvim config"
+        rm ~/.config/nvim
+    fi
 elif [[ $1 == "" ]]; then
     echo "Installing..."
     if [[ ! -L ~/.config/i3 ]]; then
@@ -49,4 +53,11 @@ elif [[ $1 == "" ]]; then
     else
         echo "termite config already exists"
     fi
+    if [[ ! -L ~/.config/nvim ]]; then
+        echo "installing nvim config"
+	ln -s ${DIR}/nvim ~/.config/nvim
+    else
+        echo "nvim config already exists"
+    fi
 fi
+
