@@ -1,2 +1,6 @@
 # ignore compiled python conde
 __pycache__
+
+# ignore lazy lock file
+lazy-lock.json
+
